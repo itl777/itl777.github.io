@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小遊戲</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap');
+
+        .container {
+            font-family: "Noto Sans TC", sans-serif;
+            margin: auto;
+            width: 80%;
+        }
+
+        #pass {
+            background-color: #F55877;
+        }
+
+        #fail {
+            background-color: gray;
+        }
+
+
+        .item {
+            background-color: lightpink;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .item textarea {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 10px;
+            font-size: 20px;
+        }
+
+        #No_0 {
+            background-color: #f3d8bf;
+        }
+
+        .btn_div {
+            display: flex;
+            justify-content: right;
+        }
+
+        #submit {
+            padding: 5px 10px;
+        }
+
+        .inform {
+            display: none;
+        }
+
+        .cube {
+            transform: All 1.5s ease;
+            transform-style: preserve-3d;
+            transition: transform 1.5s;
+            position: relative;
+
+        }
+
+
+
+        .cube-face {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 150px;
+            height: 100px;
+            border: 1px solid black;
+            position: absolute;
+        }
+
+        .cube:hover {
+            transform: translateY(80px) translateX(10px) rotateX(-25deg) rotateY(-5deg);
+        }
+
+        .front {
+            background-color: #b17745;
+        }
+
+        .back {
+            transform: translateZ(-500px);
+            background-color: #835023;
+        }
+
+        .left {
+            width: 500px;
+            transform: translateX(-250px) translateZ(-250px) rotateY(90deg);
+            background-color: #976336;
+
+        }
+
+        .right {
+            width: 500px;
+            transform: translateX(-100px) translateZ(-250px) rotateY(90deg);
+            background-color: #966438;
+        }
+
+        .bottom {
+            width: 150px;
+            height: 500px;
+            transform: translateY(-150px) translateZ(-250px) rotateX(90deg);
+            background-color: #5C3823;
+        }
+
+        .cube_Area {
+            display: flex;
+            width: 500px;
+            height: 350px;
+            flex-wrap: wrap;
+        }
+
+        .out {
+            width: 150px;
+            height: 100px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item" id="No_0">
+            <h1>設定password</h1>
+            <p>你是小明，是一位剛開始學習前端的學生，某天發現了一個網站需要你設定密碼，開始設定你的密碼吧：</p>
+            <textarea id="user_input" cols="20" rows="3"></textarea>
+            <div class="btn_div"><button id="submit">確認</button></div>
+
+        </div>
+
+        <div class="item inform" id="pass">
+            <h2>恭喜!密碼已設定完成!</h2>
+        </div>
+        <div class="item inform" id="fail">
+            <h2>密碼設定失敗了.....</h2>
+            <p class="pass_1">喔屋...超過時間了</p>
+            <p class="pass_2">小寵物雞餓死了...</p>
+        </div>
+
+        <div class="item inform " id="No_1">第一個問題
+            <h2>密碼強度不足!</h2>
+            <p>小明發現最近CSS常用到flex排版，不然把flex加進密碼裡好了。</p>
+
+        </div>
+        <div class="item inform" id="No_2">
+            <h2>密碼強度不足!</h2>
+            <p>小明反覆嘗試設定，卻還是無法成功，肚子餓了.....好想吃肯德雞...不然也把牠加進密碼好了^^</p>
+        </div>
+        <div class="item inform" id="No_3">
+            <h2>密碼強度稍微不足!</h2>
+            <p>好像快要成功了，準備出門去買肯德基，先找一下出門穿的衣服。</p>
+            <div class="cube_Area">
+                <div class="out">
+                    <div class="cube">
+                        <div class="cube-face front">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face back">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face left">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face right">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face bottom">
+                            <h2></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="out">
+                    <div class="cube">
+                        <div class="cube-face front">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face back">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face left">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face right">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face bottom">
+                            <h2></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="out">
+                    <div class="cube">
+                        <div class="cube-face front">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face back">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face left">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face right">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face bottom">
+                            <h2></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="out">
+                    <div class="cube">
+                        <div class="cube-face front">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face back">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face left">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face right">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face bottom">
+                            <h2></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="out">
+                    <div class="cube">
+                        <div class="cube-face front">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face back">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face left">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face right">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face bottom">
+                            <h2></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="out">
+                    <div class="cube">
+                        <div class="cube-face front">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face back">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face left">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face right">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face bottom">
+                            <h2></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="out">
+                    <div class="cube">
+                        <div class="cube-face front">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face back">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face left">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face right">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face bottom">
+                            <h2></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="out">
+                    <div class="cube">
+                        <div class="cube-face front">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face back">
+                            <h2>衣服在這</h2>
+                        </div>
+                        <div class="cube-face left">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face right">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face bottom">
+                            <h2></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="out">
+                    <div class="cube">
+                        <div class="cube-face front">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face back">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face left">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face right">
+                            <h2></h2>
+                        </div>
+                        <div class="cube-face bottom">
+                            <h2></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p>提示：使用grid-area加到密碼裡。(格式:'grid:1/2/1/2')</p>
+            <p>提示:建議關心一下你的寵物喔。</p>
+        </div>
+
+
+    </div>
+    <script src="game.js"></script>
+</body>
+
+</html>
