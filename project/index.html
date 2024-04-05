@@ -62,7 +62,6 @@
             transform-style: preserve-3d;
             transition: transform 1.5s;
             position: relative;
-
         }
 
 
@@ -80,6 +79,7 @@
         .cube:hover {
             transform: translateY(80px) translateX(10px) rotateX(-25deg) rotateY(-5deg);
         }
+
 
         .front {
             background-color: #b17745;
@@ -121,6 +121,19 @@
             width: 150px;
             height: 100px;
             margin: 5px;
+        }
+
+        @media screen and (max-width:480px) {
+
+            .cube:active {
+                transform: translateY(80px) translateX(10px) rotateX(-25deg) rotateY(-5deg);
+            }
+
+            .cube {
+                transform: All 0.8s ease;
+                transition: transform 0.8s;
+            }
+
         }
     </style>
 </head>
