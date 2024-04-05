@@ -19,8 +19,9 @@
         }
 
         #fail {
-            background-color: gray;
+            background-color: rgb(165, 164, 164);
         }
+
 
 
         .item {
@@ -50,7 +51,9 @@
             padding: 5px 10px;
         }
 
-        .inform {
+        .inform,
+        #fail_1,
+        #fail_2 {
             display: none;
         }
 
@@ -137,11 +140,11 @@
         </div>
         <div class="item inform" id="fail">
             <h2>密碼設定失敗了.....</h2>
-            <p class="pass_1">喔屋...超過時間了</p>
-            <p class="pass_2">小寵物雞餓死了...</p>
+            <p id="fail_1">喔屋...超過時間了</p>
+            <p id="fail_2">小寵物雞餓死了...</p>
         </div>
 
-        <div class="item inform " id="No_1">第一個問題
+        <div class="item inform " id="No_1">
             <h2>密碼強度不足!</h2>
             <p>小明發現最近CSS常用到flex排版，不然把flex加進密碼裡好了。</p>
 

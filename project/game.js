@@ -5,6 +5,8 @@ let No_2 = document.getElementById('No_2')
 let No_3 = document.getElementById('No_3')
 let pass = document.getElementById('pass')
 let fail = document.getElementById('fail')
+let fail_1 = document.getElementById('fail_1')
+let fail_2 = document.getElementById('fail_2')
 
 const chicken = new RegExp('chicken')
 const flex = new RegExp('flex')
@@ -27,6 +29,7 @@ function gameStart() {
     if (!setFailTime) {
         setFailTime = setTimeout(function () {
             gameOver();
+            fail_1.style.display = 'block'
         }, 50000)
     }
 
@@ -81,9 +84,10 @@ function addChicken() {
                 }
             } else {
                 gameOver();
+                fail_2.style.display = 'block'
             }
 
-        }, 8000)
+        }, 7000)
     }
 }
 
