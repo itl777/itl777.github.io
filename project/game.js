@@ -104,6 +104,8 @@ function gameOver() {
     fail.style.display = 'block'
     user_input.disabled = true
     submit.disabled = true
+    clearTimeout(setFailTime)
+    clearInterval(setFailInterval)
 }
 
 
