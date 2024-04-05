@@ -14,29 +14,31 @@ const insect = new RegExp('🐛')
 let flex_ans = false;
 let chicken_ans = false;
 
+let setFailTime;
+let setFailInterval;
 
 
 submit.addEventListener('click', function () {
     gameStart()
 })
 
+
 function gameStart() {
-    setTimeout(function () {
-        fail.style.display = 'block'
-        user_input.disabled = true
-        submit.disabled = true
-    }, 60000)
+    if (!setFailTime) {
+        setFailTime = setTimeout(function () {
+            gameOver();
+        }, 50000)
+    }
+
 
 
     if (user_input.value !== '') {
-        //呼叫下一關
         No_1.style.display = 'block'
     }
+
     if (flex.exec(user_input.value)) {
         flex_ans = true;
-        // 呼叫第下關
         No_2.style.display = 'block'
-
         No_1.style.backgroundColor = '#FFEDAB'
     } else {
         No_1.style.backgroundColor = 'lightpink'
@@ -44,9 +46,7 @@ function gameStart() {
 
     if (chicken.exec(user_input.value)) {
         chicken_ans = true;
-        // 呼叫第下關
         No_3.style.display = 'block'
-        //把雞放入textarea
         addChicken()
         No_2.style.backgroundColor = '#FFEDAB'
     } else {
@@ -56,35 +56,51 @@ function gameStart() {
     if (grid.exec(user_input.value)) {
         No_3.style.backgroundColor = '#FFEDAB'
 
-        // 成功設定
         if (flex_ans && chicken_ans) {
-            pass.style.display = 'block'
-            user_input.disabled = true
+            win();
         }
     } else {
         No_3.style.backgroundColor = 'lightpink'
     }
 }
 
-
+// 加入雞
 function addChicken() {
     const getChicken = new RegExp('🐔')
     if (!getChicken.exec(user_input.value)) {
         user_input.value = user_input.value + '🐔🐛🐛'
     }
-    setInterval(function () {
-        if (insect.exec(user_input.value)) {
-            // 刪除蟲蟲
-            let insect_index = user_input.value.indexOf('🐛')
-            if (insect_index > 0) {
-                user_input.value = user_input.value.substring(0, insect_index) + 'X' + user_input.value.substring(insect_index + 2);
 
+    if (!setFailInterval) {
+        setFailInterval = setInterval(function () {
+            if (insect.exec(user_input.value)) {
+                // 刪除蟲蟲
+                let insect_index = user_input.value.indexOf('🐛')
+                if (insect_index > 0) {
+                    user_input.value = user_input.value.substring(0, insect_index) + 'X' + user_input.value.substring(insect_index + 2);
+                }
+            } else {
+                gameOver();
             }
-        } else {
-            fail.style.display = 'block'
-            user_input.disabled = true
-            submit.disabled = true
-        }
 
-    }, 10000)
+        }, 8000)
+    }
 }
+
+
+// 判斷遊戲輸贏
+function win() {
+    pass.style.display = 'block'
+    user_input.disabled = true
+    submit.disabled = true
+    clearTimeout(setFailTime)
+    clearInterval(setFailInterval)
+}
+function gameOver() {
+    fail.style.display = 'block'
+    user_input.disabled = true
+    submit.disabled = true
+}
+
+
+// flexchickengrid:3/2/4/3🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛
